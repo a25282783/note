@@ -1,0 +1,3 @@
+supervisor :https://stackoverflow.com/questions/28623001/how-to-keep-laravel-queue-system-running-on-server
+laravel 設定權限 :http://ricky0512.blogspot.com/2018/11/laravel-homepage-permission-denied.html
+laravel-admin :https://laravel-admin.org/docs/zh/1.x

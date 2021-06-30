@@ -1,3 +1,18 @@
 supervisor :https://stackoverflow.com/questions/28623001/how-to-keep-laravel-queue-system-running-on-server
+
 laravel 設定權限 :http://ricky0512.blogspot.com/2018/11/laravel-homepage-permission-denied.html
+
 laravel-admin :https://laravel-admin.org/docs/zh/1.x
+
+ssl certbot:
+follow--->https://tech-hugs.com/2018/01/25/how-to-update-certbot-to-work-with-apache-webroot-authentication/
+  1.在根目錄下mkdir .well-known
+  2.在sites-enabled/網站.conf 加上 
+    RewriteEngine on
+    RewriteRule ^/.well-known/ - [L]
+    RewriteCond   %{HTTPS} !=on
+    RewriteRule   ^(.*)  https://%{SERVER_NAME}$1 [L,R]
+  3.執行
+    certbot --webroot --installer apache -w 根目錄絕對路徑 -d 域名
+
+  4.有安裝laravel-admin的話,在.env加 ADMIN_HTTPS=true

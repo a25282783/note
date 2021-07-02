@@ -16,3 +16,12 @@ follow--->https://tech-hugs.com/2018/01/25/how-to-update-certbot-to-work-with-ap
     certbot --webroot --installer apache -w 根目錄絕對路徑 -d 域名
 
   4.有安裝laravel-admin的話,在.env加 ADMIN_HTTPS=true
+  
+laravel-admin csv 亂碼問題
+  修改 vendor\encore\laravel-admin\src\Grid\Exporters\CsvExporter.php
+  export 這個 function 在 if($this->callback{...}後加上:
+  print(chr(0xEF).chr(0xBB).chr(0xBF));
+
+laravel-admin 修改上傳存入路徑
+  /vendor/encore/laravel-admin/src/Form/Field/Image.php:28(function prepare)最後改 return "/uploads/" . $path;
+  MultipleImage.php:30(function prepareForeach)最後改 return tap("/uploads/" . $this->upload($image), function () {$this->name = null;});

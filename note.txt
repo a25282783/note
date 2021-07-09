@@ -1,4 +1,8 @@
 supervisor :https://stackoverflow.com/questions/28623001/how-to-keep-laravel-queue-system-running-on-server
+laravel設定queue:
+  1.php artisan queue:table
+  2.php artisan migrate
+  3.  env()設定QUEUE_CONNECTION=database
 
 laravel 設定權限 :http://ricky0512.blogspot.com/2018/11/laravel-homepage-permission-denied.html
 
@@ -25,3 +29,4 @@ laravel-admin csv 亂碼問題
 laravel-admin 修改上傳存入路徑
   /vendor/encore/laravel-admin/src/Form/Field/Image.php:28(function prepare)最後改 return "/uploads/" . $path;
   MultipleImage.php:30(function prepareForeach)最後改 return tap("/uploads/" . $this->upload($image), function () {$this->name = null;});
+

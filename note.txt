@@ -58,3 +58,5 @@ laravel 套件：
   判斷裝置--> https://github.com/jenssegers/agent
   判斷國碼--> https://github.com/Torann/laravel-geoip
 
+Vue.js
+  隱藏變數直到實體加載完再顯示--> https://cythilya.github.io/2017/05/02/vue-v-cloak/

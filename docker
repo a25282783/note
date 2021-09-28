@@ -1,0 +1,28 @@
+數據卷
+
+掛載目錄
+Docker run  -v 主機路徑：容器內路徑 -p 主機端口：容器端口
+1.雙向綁定
+2.容器重啟後依然會自動同步
+3.刪除容器不影響主機目錄
+
+掛載 Mysql
+1.docker run --name mysql01 -e MYSQL_ROOT_PASSWORD=password -d -p 3301:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql mysql 
+
+掛載 Apache
+1.docker run -d -p 8001:80  --name httpd01 -v httpd01:/usr/local/apache2/htdocs/ httpd
+
+具名和匿名掛載
+
+匿名：Docker run -v  容器內路徑
+
+具名：Docker run -v  自己取卷名：容器內路徑（通常用這個）
+
+查看volume : docker volume ls 
+查看volume file: docker volume inspect 卷名
+
+
+數據卷容器
+1. run 第一個容器
+2. run 第二個容器,參數加上 --volumes-from 第一個容器名
+3. 2個獨立容器中的數據卷會同步
